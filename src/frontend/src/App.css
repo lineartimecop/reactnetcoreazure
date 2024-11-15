@@ -1,0 +1,27 @@
+/* ****************************************************************************
+ * File name: App.css
+ *
+ * Author: Tamás Kiss
+ * Created: Oct/15/2024
+ *
+ * Last Editor: Tamás Kiss
+ * Last Modified: Oct/15/2024
+ *
+ * Copyright (C) Tamás Kiss, 2024.
+ * ************************************************************************* */
+
+th, td {
+    border: 1px solid #cecfce;
+    border-collapse: collapse;
+    padding: 3px;
+    text-align: center;
+}
+
+th {
+    color: #fff;
+    background-color: #00eeff;
+}
+
+tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
