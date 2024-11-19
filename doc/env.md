@@ -16,6 +16,11 @@ dotnet run
 
 To have access to .NET Framework Project Templates: install .NET Framework project and item templates module from the ASP.NET and web development workload
 
+Creating a new web api project:
+- File -> New -> Project -> ASP.NET Core Web API
+- Make sure Configure for HTTPS is checked
+- Uncheck Enable OpenAPI support. Make sure that Use controllers is checked
+
 ## Visual Studio Code
 
 VS Code -> Explorer (top left) -> Create .NET Project -> ASP.NET Core Web API
@@ -80,12 +85,20 @@ Publishing a react app on IIS:
 - Right click the default website and add a new application
 - If IIS is loading some cached version of some files instead of what is actually in the IISApplication folder, then restart the server
 
+Containerizing the backend:
+- Install Docker Desktop to be able to debug the app
+- Under Settings uncheck Send user statistics
+- When Windows Defender asks whether to allow Docker to communicate on private or public networks, allow both
+- Visual Studio -> Right click project -> Add -> Docker support
+- Select the project level folder (as opposed to the solution level folder) for Docker Build Context
+- You can delete the container, the image and the build from Docker Desktop. Then running (debugging) the project from Visual Studio will start without a container. To run the project in a container again, right-click the Dockerfile in Visual Studio -> Build Docker Image. Then go to Docker Desktop -> Images -> select the image just created -> Run. Under Optional settings, add the container a name. The host port for http (8080) and https (8081) can be specified. Set 5001 and 5002 respectively and click Run. Now, you can open the app in the browser under localhost:5001
+
 ## SQL Server
 
 Creating an SQL database:
-- Under Compute + storage click Configure database make sure that under the vCore model, General Purpose (Most budget friendly) is selected, then make sure that the Serverless option is selected. Make sure that the Enable auto-pause checkbox is checked and set the auto-pause delay to 15 mins. Set the maximum size of the database to 4 GB. Make sure that the database zone redundancy is set to No.
+- Under Compute + storage click Configure database make sure that under the vCore model, General Purpose (Most budget friendly) is selected, then make sure that the Serverless option is selected. Make sure that the Enable auto-pause checkbox is checked and set the auto-pause delay to 15 mins. Set the maximum size of the database to 4 GB. Make sure that the database zone redundancy is set to No
 - To avoid legal troubles concerning data residency, select Locally-redundant backup storage
-- Go to the database and click Set server firewall. Under the Public access tab, select Selected networks and under Firewall rules, click Add your client IPv4 address. Optionally, change the name of the rule to the computer name you're connecting to the database. Also, add the IP address of the web server
+- Go to the database and click Set server firewall. Under the Public access tab, select Selected networks and under Firewall rules, click Add your client IPv4 address. Optionally, change the name of the rule to the computer name you're connecting to the database. Also, add the IP address of the web server. Click Save
 - Connect to the database from Microsoft SQL Server Management Studio or Azure Data Studio
 - Install the Microsoft.Data.SqlClient (it has replaced System.Data.SqlClient) NuGet package in the backend
 
