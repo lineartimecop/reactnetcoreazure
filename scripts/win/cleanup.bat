@@ -10,6 +10,9 @@ del ..\..\build\.DS_Store /s
 del ..\..\src\backend\.DS_Store /s
 del ..\..\src\frontend\.DS_Store /s
 
+rmdir ..\..\build\bin /s /q
+mkdir ..\..\build\bin
+
 rmdir ..\..\src\.vs /s /q
 
 rmdir ..\..\src\backend\.config /s /q
