@@ -5,9 +5,6 @@ echo
 
 cd -- "$(dirname -- "$BASH_SOURCE")"
 
-rm -rf ../../build/bin
-mkdir ../../build/bin
-
 rm -rf ../../src/.vs
 
 rm -rf ../../src/backend/.config
